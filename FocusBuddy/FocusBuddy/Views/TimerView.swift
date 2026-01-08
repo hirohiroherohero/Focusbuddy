@@ -155,18 +155,34 @@ struct TimerView: View {
     }
 
     private var startButton: some View {
-        Button(action: {
-            viewModel.startFocus()
-        }) {
-            Label("집중 시작", systemImage: "target")
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding(.horizontal, 24)
-                .padding(.vertical, 12)
-                .background(Color.buddyGreen)
-                .cornerRadius(8)
+        VStack(spacing: 8) {
+            Button(action: {
+                viewModel.startFocus()
+            }) {
+                Label("집중 시작", systemImage: "target")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 24)
+                    .padding(.vertical, 12)
+                    .background(Color.buddyGreen)
+                    .cornerRadius(8)
+            }
+            .buttonStyle(.plain)
+
+            // 테스트용 5초 버튼
+            Button(action: {
+                viewModel.startTestFocus()
+            }) {
+                Text("🧪 테스트 (5초)")
+                    .font(.caption)
+                    .foregroundColor(.orange)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(Color.orange.opacity(0.1))
+                    .cornerRadius(4)
+            }
+            .buttonStyle(.plain)
         }
-        .buttonStyle(.plain)
     }
 
     private var giveUpButton: some View {

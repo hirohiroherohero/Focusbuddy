@@ -2,25 +2,40 @@ import SwiftUI
 
 struct ContentView: View {
     private var timerViewModel = TimerViewModel.shared
+    @State private var titleViewModel = TitleViewModel()
     @State private var selectedTab = 0
 
     var body: some View {
-        VStack(spacing: 0) {
-            // Header
-            headerView
+        ZStack {
+            VStack(spacing: 0) {
+                // Header
+                headerView
 
-            Divider()
+                Divider()
 
-            // Tab Content
-            tabContent
-                .frame(maxHeight: .infinity)
+                // Tab Content
+                tabContent
+                    .frame(maxHeight: .infinity)
 
-            Divider()
+                Divider()
 
-            // Tab Bar
-            tabBar
+                // Tab Bar
+                tabBar
+            }
+
+            // 칭호 획득 팝업 오버레이
+            if titleViewModel.showUnlockPopup, let title = titleViewModel.newlyUnlockedTitle {
+                TitleUnlockPopup(title: title) {
+                    titleViewModel.dismissUnlockPopup()
+                }
+            }
         }
         .frame(width: 320, height: 400)
+        .onReceive(NotificationCenter.default.publisher(for: .titleUnlocked)) { notification in
+            if let title = notification.object as? Title {
+                titleViewModel.showTitleUnlock(title)
+            }
+        }
     }
 
     private var headerView: some View {
@@ -28,6 +43,12 @@ struct ContentView: View {
             Text("FocusBuddy")
                 .font(.headline)
                 .fontWeight(.semibold)
+
+            // 대표 칭호 표시
+            if let representativeTitle = titleViewModel.representativeTitle {
+                Text(representativeTitle.icon)
+                    .font(.title2)
+            }
 
             Spacer()
         }
@@ -46,10 +67,10 @@ struct ContentView: View {
             GrassCalendarView()
                 .transition(.opacity.combined(with: .move(edge: .trailing)))
         case 2:
-            TitleCollectionView()
+            TitleCollectionView(viewModel: titleViewModel)
                 .transition(.opacity)
         case 3:
-            placeholderView(title: "⚙️ 설정", message: "준비 중...")
+            SettingsView()
                 .transition(.opacity)
         default:
             TimerView(viewModel: timerViewModel)

@@ -2,6 +2,8 @@ import SwiftUI
 
 struct TitleCard: View {
     let title: Title
+    var isRepresentative: Bool = false
+    var onTap: (() -> Void)? = nil
 
     var body: some View {
         VStack(spacing: 8) {
@@ -20,7 +22,16 @@ struct TitleCard: View {
         .padding(.vertical, 16)
         .background(Color(NSColor.controlBackgroundColor))
         .cornerRadius(12)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(isRepresentative ? Color.buddyGreen : Color.clear, lineWidth: 2)
+        )
         .opacity(title.isUnlocked ? 1.0 : 0.6)
+        .onTapGesture {
+            if title.isUnlocked {
+                onTap?()
+            }
+        }
     }
 }
 

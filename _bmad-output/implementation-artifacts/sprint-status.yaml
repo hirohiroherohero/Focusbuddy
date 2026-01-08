@@ -4,7 +4,7 @@
 
 project: "FocusBuddy"
 generated: "2026-01-07"
-last_updated: "2026-01-08T11:00:00"
+last_updated: "2026-01-08T15:00:00"
 
 # Epic and Story Status Definitions:
 # - backlog: Not started, waiting in queue
@@ -100,7 +100,7 @@ development_status:
     # ═══════════════════════════════════════════════════════════════
     epic-3:
         name: "칭호 수집"
-        status: in-progress
+        status: done
         dependencies: ["epic-1"]
         stories:
             - id: "3-1-title-collection-ui"
@@ -112,7 +112,7 @@ development_status:
 
             - id: "3-2-title-condition-check"
               name: "칭호 조건 체크"
-              status: ready
+              status: done
               story_file: "_bmad-output/implementation-artifacts/3-2-title-condition-check.md"
               dependencies:
                   ["3-1-title-collection-ui", "1-5-session-record-save"]
@@ -120,46 +120,50 @@ development_status:
 
             - id: "3-3-title-unlock-notification"
               name: "칭호 획득 알림"
-              status: backlog
-              story_file: null
+              status: done
+              story_file: "_bmad-output/implementation-artifacts/3-3-title-unlock-notification.md"
               dependencies: ["3-2-title-condition-check"]
               fr_coverage: ["FR-4.4", "FR-4.5"]
 
             - id: "3-4-title-data-save"
               name: "칭호 데이터 저장"
-              status: backlog
+              status: done
               story_file: null
               dependencies: ["3-3-title-unlock-notification"]
               fr_coverage: ["FR-6.3"]
+              notes: "Already implemented in TitleRepository as part of earlier stories"
 
     # ═══════════════════════════════════════════════════════════════
     # Epic 4: 완성도 높이기 (Polish & Completion)
     # ═══════════════════════════════════════════════════════════════
     epic-4:
         name: "완성도 높이기"
-        status: backlog
+        status: done
         dependencies: ["epic-1", "epic-2", "epic-3"]
         stories:
             - id: "4-1-menubar-icon-states"
               name: "상태별 메뉴바 아이콘"
-              status: backlog
+              status: done
               story_file: null
               dependencies: ["1-2-focus-timer-start"]
               fr_coverage: ["FR-1.3"]
+              notes: "Already implemented in AppDelegate.updateMenuBarTitle()"
 
             - id: "4-2-various-messages"
               name: "다양한 메시지"
-              status: backlog
+              status: done
               story_file: null
               dependencies: ["1-3-focus-give-up", "1-4-focus-complete-and-rest"]
               fr_coverage: ["FR-5.3", "FR-5.4"]
+              notes: "FR-5.3 already done (random). Added FR-5.4: first completion, streak milestone messages"
 
             - id: "4-3-settings-screen"
               name: "설정 화면"
-              status: backlog
+              status: done
               story_file: null
               dependencies: ["1-1-menubar-app-basic-setup"]
               fr_coverage: ["FR-1.5", "FR-6.4"]
+              notes: "SettingsView with launch at login toggle using SMAppService"
 
 # Retrospective placeholders (run after each epic completion)
 retrospectives:
@@ -184,7 +188,8 @@ retrospectives:
 summary:
     total_epics: 4
     total_stories: 15
-    completed_stories: 9
+    completed_stories: 15
     in_progress_stories: 0
+    review_stories: 0
     blocked_stories: 0
-    completion_percentage: 60
+    completion_percentage: 100

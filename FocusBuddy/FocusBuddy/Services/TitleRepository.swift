@@ -1,5 +1,11 @@
 import Foundation
 
+// MARK: - Notification Name Extension
+
+extension Notification.Name {
+    static let titleUnlocked = Notification.Name("titleUnlocked")
+}
+
 final class TitleRepository {
     static let shared = TitleRepository()
 
@@ -13,6 +19,7 @@ final class TitleRepository {
 
     private(set) var unlockedTitleIds: Set<String> = []
     private(set) var unlockDates: [String: Date] = [:]
+    private(set) var representativeTitleId: String?
 
     private init() {
         createDirectoryIfNeeded()
@@ -41,6 +48,12 @@ final class TitleRepository {
         unlockedTitleIds.contains(titleId)
     }
 
+    func setRepresentative(_ titleId: String) {
+        guard unlockedTitleIds.contains(titleId) else { return }
+        representativeTitleId = titleId
+        persist()
+    }
+
     func load() {
         guard let data = try? Data(contentsOf: titlesURL),
               let decoded = try? JSONDecoder.iso8601.decode(TitleData.self, from: data) else {
@@ -48,6 +61,7 @@ final class TitleRepository {
         }
         unlockedTitleIds = Set(decoded.unlockedIds)
         unlockDates = decoded.unlockDates
+        representativeTitleId = decoded.representativeTitleId
     }
 
     // MARK: - Persistence
@@ -55,7 +69,8 @@ final class TitleRepository {
     private func persist() {
         let data = TitleData(
             unlockedIds: Array(unlockedTitleIds),
-            unlockDates: unlockDates
+            unlockDates: unlockDates,
+            representativeTitleId: representativeTitleId
         )
         guard let encoded = try? JSONEncoder.iso8601.encode(data) else { return }
         try? encoded.write(to: titlesURL)
@@ -67,6 +82,7 @@ final class TitleRepository {
 private struct TitleData: Codable {
     let unlockedIds: [String]
     let unlockDates: [String: Date]
+    let representativeTitleId: String?
 }
 
 // MARK: - JSON Encoder/Decoder Extensions

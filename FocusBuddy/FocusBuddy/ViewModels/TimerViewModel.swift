@@ -26,6 +26,7 @@ class TimerViewModel {
     /// 루프 설정
     var targetLoops: Int = 4           // 목표 루프 횟수 (기본 4회 = 뽀모도로 1세트)
     private(set) var completedLoops: Int = 0  // 완료한 루프 횟수
+    private var isTestMode: Bool = false  // 테스트 모드 플래그
 
     // MARK: - Constants
 
@@ -61,6 +62,7 @@ class TimerViewModel {
         // 대기 상태에서 시작하면 루프 카운트 리셋
         if state == .idle {
             completedLoops = 0
+            isTestMode = false
         }
         sessionStartTime = Date()
         remainingSeconds = Self.focusDuration
@@ -68,8 +70,24 @@ class TimerViewModel {
         startTimer()
     }
 
+    /// 테스트용 5초 집중 세션 시작
+    func startTestFocus() {
+        if state == .idle {
+            completedLoops = 0
+            isTestMode = true
+        }
+        sessionStartTime = Date()
+        remainingSeconds = 5  // 5초
+        state = .focusing(remaining: remainingSeconds)
+        startTimer()
+    }
+
     func giveUp() {
         stopTimer()
+
+        // 포기 플래그 설정 (칭호 조건용)
+        sessionRepository.markGiveUp()
+
         currentMessage = messageService.getGiveUpMessage()
         withAnimation(.easeInOut(duration: 0.3)) {
             showMessage = true
@@ -126,17 +144,23 @@ class TimerViewModel {
                     completed: true
                 )
                 sessionRepository.save(session)
+
+                // 칭호 조건 체크 (세션 저장 후)
+                TitleChecker.shared.checkAndUnlockTitles()
             }
 
             // macOS 알림 발송
             notificationService.notifyFocusComplete()
 
-            // 집중 완료 → 휴식 모드 전환
-            currentMessage = messageService.getCompletionMessage()
+            // 집중 완료 → 휴식 모드 전환 (상황별 메시지)
+            currentMessage = messageService.getCompletionMessage(
+                sessionCount: sessionRepository.completedSessionCount,
+                streakDays: sessionRepository.currentStreak
+            )
             withAnimation(.easeInOut(duration: 0.3)) {
                 showMessage = true
             }
-            remainingSeconds = Self.restDuration
+            remainingSeconds = isTestMode ? 5 : Self.restDuration  // 테스트 모드면 5초
             state = .resting(remaining: remainingSeconds)
             startTimer()
 

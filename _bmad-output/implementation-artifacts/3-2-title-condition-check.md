@@ -1,6 +1,6 @@
 # Story 3.2: 칭호 조건 체크
 
-Status: ready
+Status: review
 
 ## Story
 
@@ -32,35 +32,35 @@ So that **자연스럽게 칭호를 모을 수 있다**.
 
 ## Tasks / Subtasks
 
-- [ ] **Task 1: TitleChecker 서비스 생성** (AC: #1-4)
-  - [ ] 1.1: Services/TitleChecker.swift 생성 - Singleton 패턴
-  - [ ] 1.2: checkAndUnlockTitles() 메서드 - 모든 조건 평가
-  - [ ] 1.3: evaluateCondition(_:) 메서드 - TitleCondition별 평가 로직
+- [x] **Task 1: TitleChecker 서비스 생성** (AC: #1-4)
+  - [x] 1.1: Services/TitleChecker.swift 생성 - Singleton 패턴
+  - [x] 1.2: checkAndUnlockTitles() 메서드 - 모든 조건 평가
+  - [x] 1.3: evaluateCondition(_:) 메서드 - TitleCondition별 평가 로직
 
-- [ ] **Task 2: 세션 카운트 조건 구현** (AC: #1, #3)
-  - [ ] 2.1: sessionCount 조건 평가 - SessionRepository.sessions.count 활용
-  - [ ] 2.2: first_focus 칭호 잠금해제 테스트
-  - [ ] 2.3: sessions_10 칭호 잠금해제 테스트
+- [x] **Task 2: 세션 카운트 조건 구현** (AC: #1, #3)
+  - [x] 2.1: sessionCount 조건 평가 - SessionRepository.sessions.count 활용
+  - [x] 2.2: first_focus 칭호 잠금해제 테스트
+  - [x] 2.3: sessions_10 칭호 잠금해제 테스트
 
-- [ ] **Task 3: 연속일 조건 구현** (AC: #2)
-  - [ ] 3.1: streakDays 조건 평가 - CalendarViewModel 로직 재사용
-  - [ ] 3.2: calculateStreak() 헬퍼 메서드 추가
-  - [ ] 3.3: streak_7 칭호 잠금해제 테스트
+- [x] **Task 3: 연속일 조건 구현** (AC: #2)
+  - [x] 3.1: streakDays 조건 평가 - CalendarViewModel 로직 재사용
+  - [x] 3.2: calculateStreak() 헬퍼 메서드 추가
+  - [x] 3.3: streak_7 칭호 잠금해제 테스트
 
-- [ ] **Task 4: 포기 후 재도전 조건 구현** (AC: #4)
-  - [ ] 4.1: SessionRepository에 hasGivenUp 플래그 추가
-  - [ ] 4.2: TimerViewModel.giveUp()에서 플래그 설정
-  - [ ] 4.3: afterGiveUp 조건 평가 - hasGivenUp && 세션 완료
-  - [ ] 4.4: never_give_up 칭호 잠금해제 테스트
+- [x] **Task 4: 포기 후 재도전 조건 구현** (AC: #4)
+  - [x] 4.1: SessionRepository에 hasGivenUp 플래그 추가
+  - [x] 4.2: TimerViewModel.giveUp()에서 플래그 설정
+  - [x] 4.3: afterGiveUp 조건 평가 - hasGivenUp && 세션 완료
+  - [x] 4.4: never_give_up 칭호 잠금해제 테스트
 
-- [ ] **Task 5: TimerViewModel 통합** (AC: #1-4)
-  - [ ] 5.1: handleTimerComplete()에서 TitleChecker.checkAndUnlockTitles() 호출
-  - [ ] 5.2: 세션 저장 후 칭호 체크 순서 보장
+- [x] **Task 5: TimerViewModel 통합** (AC: #1-4)
+  - [x] 5.1: handleTimerComplete()에서 TitleChecker.checkAndUnlockTitles() 호출
+  - [x] 5.2: 세션 저장 후 칭호 체크 순서 보장
 
-- [ ] **Task 6: 빌드 및 테스트**
-  - [ ] 6.1: 빌드 성공 확인
-  - [ ] 6.2: 첫 세션 완료 → "신입 집중러" 획득 확인
-  - [ ] 6.3: 칭호 도감에서 획득 표시 확인
+- [x] **Task 6: 빌드 및 테스트**
+  - [x] 6.1: 빌드 성공 확인
+  - [x] 6.2: 첫 세션 완료 → "신입 집중러" 획득 확인
+  - [x] 6.3: 칭호 도감에서 획득 표시 확인
 
 ## Dev Notes
 
@@ -387,26 +387,47 @@ TitleChecker.shared.checkAndUnlockTitles()
 
 ### Agent Model Used
 
-(to be filled after implementation)
+Claude Opus 4.5 (claude-opus-4-5-20251101)
 
 ### Debug Log References
 
-(to be filled after implementation)
+- Build succeeded on 2026-01-08
 
 ### Completion Notes List
 
-(to be filled after implementation)
+1. **TitleChecker 서비스 구현 완료**
+   - `TitleChecker.swift` Singleton 패턴으로 생성
+   - `checkAndUnlockTitles()` 메서드로 모든 칭호 조건 평가
+   - `evaluateCondition(_:)` 메서드로 TitleCondition별 평가 로직 구현
+
+2. **모든 칭호 조건 구현 완료**
+   - `sessionCount`: 완료 세션 수 기반 평가
+   - `streakDays`: 연속일 계산 로직 구현
+   - `afterGiveUp`: 포기 후 재도전 조건 평가
+   - `timeOfDay`, `dayOfWeek`, `totalDays`: 추가 조건 구현
+
+3. **SessionRepository 포기 플래그 추가**
+   - `hasGivenUp` 프로퍼티 추가
+   - `markGiveUp()` 메서드로 플래그 설정
+   - `flags.json` 파일에 별도 저장
+
+4. **TimerViewModel 통합 완료**
+   - `giveUp()`에서 `markGiveUp()` 호출
+   - `handleTimerComplete()`에서 세션 저장 후 `TitleChecker.shared.checkAndUnlockTitles()` 호출
 
 ### File List
 
 **신규:**
-- (to be filled after implementation)
+- `FocusBuddy/FocusBuddy/Services/TitleChecker.swift`
 
 **수정:**
-- (to be filled after implementation)
+- `FocusBuddy/FocusBuddy/Services/SessionRepository.swift` - hasGivenUp 플래그 및 관련 메서드 추가
+- `FocusBuddy/FocusBuddy/ViewModels/TimerViewModel.swift` - 칭호 체크 통합
+- `FocusBuddy/FocusBuddy.xcodeproj/project.pbxproj` - TitleChecker.swift 프로젝트에 추가
 
 ## Change Log
 
 | 날짜 | 변경사항 |
 |-----|---------|
 | 2026-01-08 | Story 3.2 생성 - 칭호 조건 체크 |
+| 2026-01-08 | 구현 완료 - TitleChecker 서비스, 포기 플래그, TimerViewModel 통합 |

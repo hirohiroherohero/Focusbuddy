@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0526FB5B1425B5514C82837D /* TitleCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EAB39046C13F17F0555C64 /* TitleCollectionView.swift */; };
+		E1F2A3B4C5D6E7F8A9B0C1D2 /* SettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E2D3C4B5A6978A0B1C2D3E /* SettingsRepository.swift */; };
+		A2B3C4D5E6F7A8B9C0D1E2F3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4E5F6A7B8C9D0E1F2A3 /* SettingsView.swift */; };
+		A9B3C4D51E2F6A7B8C9D0E1F /* TitleUnlockPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E5F4A32B1C9D8E6F0A3B2C /* TitleUnlockPopup.swift */; };
+		B8A7C3E21F9D4A6B8C0E2D1F /* TitleChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D2A1B84C6E7F9A0B3D5E2C /* TitleChecker.swift */; };
 		2040FEBD1FACED4E5A5B7FE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296FFEBE24F539F3B41DCEE1 /* AppDelegate.swift */; };
 		2D18E691BB19E976F7A9B540 /* SessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9471E6F267F646390E079C /* SessionRepository.swift */; };
 		30B8A3BA20365F190964EC2E /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0319B16A011FDFEF8BEF88A /* CalendarViewModel.swift */; };
@@ -30,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		0AF0713C23F88ED6A43DE24F /* GrassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrassCell.swift; sourceTree = "<group>"; };
+		F1E2D3C4B5A6978A0B1C2D3E /* SettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRepository.swift; sourceTree = "<group>"; };
+		B2C3D4E5F6A7B8C9D0E1F2A3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1C9471E6F267F646390E079C /* SessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionRepository.swift; sourceTree = "<group>"; };
 		214772AC75D0A558E07F4F49 /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
 		296FFEBE24F539F3B41DCEE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,12 +49,14 @@
 		A1EAB39046C13F17F0555C64 /* TitleCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionView.swift; sourceTree = "<group>"; };
 		A22A4EE1DA68CA98859FA488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A3B17480B2A438B264563401 /* TitleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCard.swift; sourceTree = "<group>"; };
+		D7E5F4A32B1C9D8E6F0A3B2C /* TitleUnlockPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleUnlockPopup.swift; sourceTree = "<group>"; };
 		B2809A9031633698ED98282D /* TimerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerState.swift; sourceTree = "<group>"; };
 		C3A9371B19E062728ECA7511 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C6A7E11E39609408D4E13F00 /* TitleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleRepository.swift; sourceTree = "<group>"; };
 		D1AF076C6AD2E8B47D5B805E /* FocusBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusBuddyApp.swift; sourceTree = "<group>"; };
 		D53DB21E2C7BBC1D939F355F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		E0319B16A011FDFEF8BEF88A /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		F5D2A1B84C6E7F9A0B3D5E2C /* TitleChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleChecker.swift; sourceTree = "<group>"; };
 		"TEMP_745A838A-EF96-49E9-A5DC-18DC486B3229" /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +75,8 @@
 				A1548C6D1E587170C0CC6ADF /* MessageService.swift */,
 				5944074BD79BEA9FA4B9A82B /* NotificationService.swift */,
 				1C9471E6F267F646390E079C /* SessionRepository.swift */,
+				F1E2D3C4B5A6978A0B1C2D3E /* SettingsRepository.swift */,
+				F5D2A1B84C6E7F9A0B3D5E2C /* TitleChecker.swift */,
 				C6A7E11E39609408D4E13F00 /* TitleRepository.swift */,
 			);
 			path = Services;
@@ -95,6 +105,7 @@
 			children = (
 				0AF0713C23F88ED6A43DE24F /* GrassCell.swift */,
 				A3B17480B2A438B264563401 /* TitleCard.swift */,
+				D7E5F4A32B1C9D8E6F0A3B2C /* TitleUnlockPopup.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -114,6 +125,7 @@
 			children = (
 				C3A9371B19E062728ECA7511 /* ContentView.swift */,
 				3410E84E3E219955CC02FF40 /* GrassCalendarView.swift */,
+				B2C3D4E5F6A7B8C9D0E1F2A3 /* SettingsView.swift */,
 				D53DB21E2C7BBC1D939F355F /* TimerView.swift */,
 				A1EAB39046C13F17F0555C64 /* TitleCollectionView.swift */,
 				C3493596A6866FC6D021CE0C /* Components */,
@@ -218,11 +230,15 @@
 				345CC4523569BF60A1E8C3E8 /* NotificationService.swift in Sources */,
 				7E701C6D35F2A36DD67DD7A7 /* SessionRecord.swift in Sources */,
 				2D18E691BB19E976F7A9B540 /* SessionRepository.swift in Sources */,
+				E1F2A3B4C5D6E7F8A9B0C1D2 /* SettingsRepository.swift in Sources */,
+				A2B3C4D5E6F7A8B9C0D1E2F3 /* SettingsView.swift in Sources */,
 				59E0F85C5DB1E4C7A3936B54 /* TimerState.swift in Sources */,
 				F54E365990CF1C7EF45852F6 /* TimerView.swift in Sources */,
 				560A22EA7A8CAAF4335703FE /* TimerViewModel.swift in Sources */,
 				D17A0C574F01D9631BF170DE /* Title.swift in Sources */,
 				C0DE7B2940E645C3F30AE0CF /* TitleCard.swift in Sources */,
+				A9B3C4D51E2F6A7B8C9D0E1F /* TitleUnlockPopup.swift in Sources */,
+				B8A7C3E21F9D4A6B8C0E2D1F /* TitleChecker.swift in Sources */,
 				0526FB5B1425B5514C82837D /* TitleCollectionView.swift in Sources */,
 				E88F7F6F024D6FD19AC3D797 /* TitleRepository.swift in Sources */,
 				587C175BACFF7E253175CF4B /* TitleViewModel.swift in Sources */,

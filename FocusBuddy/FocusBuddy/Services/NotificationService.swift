@@ -83,4 +83,20 @@ final class NotificationService {
 
         UNUserNotificationCenter.current().add(request)
     }
+
+    /// 칭호 획득 알림
+    func notifyTitleUnlocked(title: Title) {
+        let content = UNMutableNotificationContent()
+        content.title = "\(title.icon) 새 칭호 획득!"
+        content.body = "「\(title.name)」 칭호를 획득했어요! - \(title.description)"
+        content.sound = .default
+
+        let request = UNNotificationRequest(
+            identifier: UUID().uuidString,
+            content: content,
+            trigger: nil
+        )
+
+        UNUserNotificationCenter.current().add(request)
+    }
 }
