@@ -1,6 +1,6 @@
 # Story 1.3: 집중 포기하기
 
-Status: review
+Status: done
 
 ## Story
 

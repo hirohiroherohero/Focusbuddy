@@ -4,7 +4,7 @@
 
 project: "FocusBuddy"
 generated: "2026-01-07"
-last_updated: "2026-01-07T12:00:00"
+last_updated: "2026-01-08T11:00:00"
 
 # Epic and Story Status Definitions:
 # - backlog: Not started, waiting in queue
@@ -16,174 +16,175 @@ last_updated: "2026-01-07T12:00:00"
 
 # Current Sprint Focus
 current_sprint:
-  name: "Sprint 1 - 첫 집중 세션"
-  goal: "사용자가 메뉴바에서 첫 번째 집중 세션을 완료할 수 있다"
-  epic: "epic-1"
-  started: "2026-01-07"
-  target_completion: null
+    name: "Sprint 1 - 첫 집중 세션"
+    goal: "사용자가 메뉴바에서 첫 번째 집중 세션을 완료할 수 있다"
+    epic: "epic-1"
+    started: "2026-01-07"
+    target_completion: null
 
 # Development Status Tracking
 development_status:
-  # ═══════════════════════════════════════════════════════════════
-  # Epic 1: 첫 집중 세션 (First Focus Session)
-  # ═══════════════════════════════════════════════════════════════
-  epic-1:
-    name: "첫 집중 세션"
-    status: in-progress
-    stories:
-      - id: "1-1-menubar-app-basic-setup"
-        name: "메뉴바 앱 기본 설정"
-        status: review
-        story_file: "_bmad-output/implementation-artifacts/1-1-menubar-app-basic-setup.md"
-        dependencies: []
-        fr_coverage: ["FR-1.1", "FR-1.2", "FR-1.4"]
+    # ═══════════════════════════════════════════════════════════════
+    # Epic 1: 첫 집중 세션 (First Focus Session)
+    # ═══════════════════════════════════════════════════════════════
+    epic-1:
+        name: "첫 집중 세션"
+        status: done
+        stories:
+            - id: "1-1-menubar-app-basic-setup"
+              name: "메뉴바 앱 기본 설정"
+              status: done
+              story_file: "_bmad-output/implementation-artifacts/1-1-menubar-app-basic-setup.md"
+              dependencies: []
+              fr_coverage: ["FR-1.1", "FR-1.2", "FR-1.4"]
 
-      - id: "1-2-focus-timer-start"
-        name: "집중 타이머 시작"
-        status: review
-        story_file: "_bmad-output/implementation-artifacts/1-2-focus-timer-start.md"
-        dependencies: ["1-1-menubar-app-basic-setup"]
-        fr_coverage: ["FR-2.1", "FR-2.2", "FR-2.3"]
+            - id: "1-2-focus-timer-start"
+              name: "집중 타이머 시작"
+              status: done
+              story_file: "_bmad-output/implementation-artifacts/1-2-focus-timer-start.md"
+              dependencies: ["1-1-menubar-app-basic-setup"]
+              fr_coverage: ["FR-2.1", "FR-2.2", "FR-2.3"]
 
-      - id: "1-3-focus-give-up"
-        name: "집중 포기하기"
-        status: review
-        story_file: "_bmad-output/implementation-artifacts/1-3-focus-give-up.md"
-        dependencies: ["1-2-focus-timer-start"]
-        fr_coverage: ["FR-2.6", "FR-5.1", "FR-5.2"]
+            - id: "1-3-focus-give-up"
+              name: "집중 포기하기"
+              status: done
+              story_file: "_bmad-output/implementation-artifacts/1-3-focus-give-up.md"
+              dependencies: ["1-2-focus-timer-start"]
+              fr_coverage: ["FR-2.6", "FR-5.1", "FR-5.2"]
 
-      - id: "1-4-focus-complete-and-rest"
-        name: "집중 완료와 휴식"
-        status: review
-        story_file: "_bmad-output/implementation-artifacts/1-4-focus-complete-and-rest.md"
-        dependencies: ["1-2-focus-timer-start"]
-        fr_coverage: ["FR-2.4", "FR-2.5", "FR-2.6"]
+            - id: "1-4-focus-complete-and-rest"
+              name: "집중 완료와 휴식"
+              status: done
+              story_file: "_bmad-output/implementation-artifacts/1-4-focus-complete-and-rest.md"
+              dependencies: ["1-2-focus-timer-start"]
+              fr_coverage: ["FR-2.4", "FR-2.5", "FR-2.6"]
 
-      - id: "1-5-session-record-save"
-        name: "세션 기록 저장"
-        status: review
-        story_file: "_bmad-output/implementation-artifacts/1-5-session-record-save.md"
-        dependencies: ["1-4-focus-complete-and-rest"]
-        fr_coverage: ["FR-6.1"]
+            - id: "1-5-session-record-save"
+              name: "세션 기록 저장"
+              status: done
+              story_file: "_bmad-output/implementation-artifacts/1-5-session-record-save.md"
+              dependencies: ["1-4-focus-complete-and-rest"]
+              fr_coverage: ["FR-6.1"]
 
-  # ═══════════════════════════════════════════════════════════════
-  # Epic 2: 잔디로 성장 확인 (Growth via Grass Calendar)
-  # ═══════════════════════════════════════════════════════════════
-  epic-2:
-    name: "잔디로 성장 확인"
-    status: backlog
-    dependencies: ["epic-1"]
-    stories:
-      - id: "2-1-grass-calendar-basic-ui"
-        name: "잔디 캘린더 기본 UI"
+    # ═══════════════════════════════════════════════════════════════
+    # Epic 2: 잔디로 성장 확인 (Growth via Grass Calendar)
+    # ═══════════════════════════════════════════════════════════════
+    epic-2:
+        name: "잔디로 성장 확인"
+        status: done
+        dependencies: ["epic-1"]
+        stories:
+            - id: "2-1-grass-calendar-basic-ui"
+              name: "잔디 캘린더 기본 UI"
+              status: done
+              story_file: "_bmad-output/implementation-artifacts/2-1-grass-calendar-basic-ui.md"
+              dependencies: ["1-5-session-record-save"]
+              fr_coverage: ["FR-3.1", "FR-3.2"]
+
+            - id: "2-2-grass-color-display"
+              name: "잔디 색상 표시"
+              status: done
+              story_file: "_bmad-output/implementation-artifacts/2-2-grass-color-display.md"
+              dependencies: ["2-1-grass-calendar-basic-ui"]
+              fr_coverage: ["FR-3.3", "FR-3.4", "FR-3.5"]
+
+            - id: "2-3-streak-and-stats"
+              name: "연속 집중일과 통계"
+              status: done
+              story_file: "_bmad-output/implementation-artifacts/2-3-streak-and-stats.md"
+              dependencies: ["2-2-grass-color-display"]
+              fr_coverage: ["FR-3.6", "FR-6.2"]
+
+    # ═══════════════════════════════════════════════════════════════
+    # Epic 3: 칭호 수집 (Title Collection)
+    # ═══════════════════════════════════════════════════════════════
+    epic-3:
+        name: "칭호 수집"
+        status: in-progress
+        dependencies: ["epic-1"]
+        stories:
+            - id: "3-1-title-collection-ui"
+              name: "칭호 도감 UI"
+              status: done
+              story_file: "_bmad-output/implementation-artifacts/3-1-title-collection-ui.md"
+              dependencies: ["1-1-menubar-app-basic-setup"]
+              fr_coverage: ["FR-4.1", "FR-4.2"]
+
+            - id: "3-2-title-condition-check"
+              name: "칭호 조건 체크"
+              status: ready
+              story_file: "_bmad-output/implementation-artifacts/3-2-title-condition-check.md"
+              dependencies:
+                  ["3-1-title-collection-ui", "1-5-session-record-save"]
+              fr_coverage: ["FR-4.3"]
+
+            - id: "3-3-title-unlock-notification"
+              name: "칭호 획득 알림"
+              status: backlog
+              story_file: null
+              dependencies: ["3-2-title-condition-check"]
+              fr_coverage: ["FR-4.4", "FR-4.5"]
+
+            - id: "3-4-title-data-save"
+              name: "칭호 데이터 저장"
+              status: backlog
+              story_file: null
+              dependencies: ["3-3-title-unlock-notification"]
+              fr_coverage: ["FR-6.3"]
+
+    # ═══════════════════════════════════════════════════════════════
+    # Epic 4: 완성도 높이기 (Polish & Completion)
+    # ═══════════════════════════════════════════════════════════════
+    epic-4:
+        name: "완성도 높이기"
         status: backlog
-        story_file: null
-        dependencies: ["1-5-session-record-save"]
-        fr_coverage: ["FR-3.1", "FR-3.2"]
+        dependencies: ["epic-1", "epic-2", "epic-3"]
+        stories:
+            - id: "4-1-menubar-icon-states"
+              name: "상태별 메뉴바 아이콘"
+              status: backlog
+              story_file: null
+              dependencies: ["1-2-focus-timer-start"]
+              fr_coverage: ["FR-1.3"]
 
-      - id: "2-2-grass-color-display"
-        name: "잔디 색상 표시"
-        status: backlog
-        story_file: null
-        dependencies: ["2-1-grass-calendar-basic-ui"]
-        fr_coverage: ["FR-3.3", "FR-3.4", "FR-3.5"]
+            - id: "4-2-various-messages"
+              name: "다양한 메시지"
+              status: backlog
+              story_file: null
+              dependencies: ["1-3-focus-give-up", "1-4-focus-complete-and-rest"]
+              fr_coverage: ["FR-5.3", "FR-5.4"]
 
-      - id: "2-3-streak-and-stats"
-        name: "연속 집중일과 통계"
-        status: backlog
-        story_file: null
-        dependencies: ["2-2-grass-color-display"]
-        fr_coverage: ["FR-3.6", "FR-6.2"]
-
-  # ═══════════════════════════════════════════════════════════════
-  # Epic 3: 칭호 수집 (Title Collection)
-  # ═══════════════════════════════════════════════════════════════
-  epic-3:
-    name: "칭호 수집"
-    status: backlog
-    dependencies: ["epic-1"]
-    stories:
-      - id: "3-1-title-collection-ui"
-        name: "칭호 도감 UI"
-        status: backlog
-        story_file: null
-        dependencies: ["1-1-menubar-app-basic-setup"]
-        fr_coverage: ["FR-4.1", "FR-4.2"]
-
-      - id: "3-2-title-condition-check"
-        name: "칭호 조건 체크"
-        status: backlog
-        story_file: null
-        dependencies: ["3-1-title-collection-ui", "1-5-session-record-save"]
-        fr_coverage: ["FR-4.3"]
-
-      - id: "3-3-title-unlock-notification"
-        name: "칭호 획득 알림"
-        status: backlog
-        story_file: null
-        dependencies: ["3-2-title-condition-check"]
-        fr_coverage: ["FR-4.4", "FR-4.5"]
-
-      - id: "3-4-title-data-save"
-        name: "칭호 데이터 저장"
-        status: backlog
-        story_file: null
-        dependencies: ["3-3-title-unlock-notification"]
-        fr_coverage: ["FR-6.3"]
-
-  # ═══════════════════════════════════════════════════════════════
-  # Epic 4: 완성도 높이기 (Polish & Completion)
-  # ═══════════════════════════════════════════════════════════════
-  epic-4:
-    name: "완성도 높이기"
-    status: backlog
-    dependencies: ["epic-1", "epic-2", "epic-3"]
-    stories:
-      - id: "4-1-menubar-icon-states"
-        name: "상태별 메뉴바 아이콘"
-        status: backlog
-        story_file: null
-        dependencies: ["1-2-focus-timer-start"]
-        fr_coverage: ["FR-1.3"]
-
-      - id: "4-2-various-messages"
-        name: "다양한 메시지"
-        status: backlog
-        story_file: null
-        dependencies: ["1-3-focus-give-up", "1-4-focus-complete-and-rest"]
-        fr_coverage: ["FR-5.3", "FR-5.4"]
-
-      - id: "4-3-settings-screen"
-        name: "설정 화면"
-        status: backlog
-        story_file: null
-        dependencies: ["1-1-menubar-app-basic-setup"]
-        fr_coverage: ["FR-1.5", "FR-6.4"]
+            - id: "4-3-settings-screen"
+              name: "설정 화면"
+              status: backlog
+              story_file: null
+              dependencies: ["1-1-menubar-app-basic-setup"]
+              fr_coverage: ["FR-1.5", "FR-6.4"]
 
 # Retrospective placeholders (run after each epic completion)
 retrospectives:
-  epic-1-retrospective:
-    status: optional
-    completed: null
-    notes: null
-  epic-2-retrospective:
-    status: optional
-    completed: null
-    notes: null
-  epic-3-retrospective:
-    status: optional
-    completed: null
-    notes: null
-  epic-4-retrospective:
-    status: optional
-    completed: null
-    notes: null
+    epic-1-retrospective:
+        status: optional
+        completed: null
+        notes: null
+    epic-2-retrospective:
+        status: optional
+        completed: null
+        notes: null
+    epic-3-retrospective:
+        status: optional
+        completed: null
+        notes: null
+    epic-4-retrospective:
+        status: optional
+        completed: null
+        notes: null
 
 # Summary Statistics
 summary:
-  total_epics: 4
-  total_stories: 15
-  completed_stories: 0
-  in_progress_stories: 0
-  blocked_stories: 0
-  completion_percentage: 0
+    total_epics: 4
+    total_stories: 15
+    completed_stories: 9
+    in_progress_stories: 0
+    blocked_stories: 0
+    completion_percentage: 60

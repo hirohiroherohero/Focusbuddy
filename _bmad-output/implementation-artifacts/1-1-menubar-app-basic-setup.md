@@ -1,6 +1,6 @@
 # Story 1.1: 메뉴바 앱 기본 설정
 
-Status: review
+Status: done
 
 ## Story
 
@@ -30,7 +30,7 @@ So that **집중 앱에 쉽게 접근할 수 있다**.
 - [x] **Task 1: Xcode 프로젝트 설정** (AC: 전체)
   - [x] 1.1: Xcode 프로젝트 생성 (macOS App, SwiftUI)
   - [x] 1.2: 번들 ID 설정: `com.focusbuddy.app`
-  - [x] 1.3: Deployment Target: macOS 13.0
+  - [x] 1.3: Deployment Target: macOS 14.0 (Story 1-2에서 @Observable 호환을 위해 변경됨)
   - [x] 1.4: 프로젝트 폴더 구조 생성 (Models/, ViewModels/, Views/, Services/, Resources/)
 
 - [x] **Task 2: AppDelegate 및 메뉴바 설정** (AC: #1, #2)
@@ -61,7 +61,7 @@ So that **집중 앱에 쉽게 접근할 수 있다**.
 View (SwiftUI) ──observe──► ViewModel (@Observable) ──uses──► Model + Services
 ```
 
-**이 스토리에서는 아직 ViewModel이 필요 없음** - 단순 UI 설정만 포함.
+**Note:** 최초 설계에서는 ViewModel 불필요했으나, 최종 구현에서는 TimerViewModel과 TimerView가 포함됨 (Story 1-2에서 구현). ContentView가 TimerView를 포함하는 구조로 통합됨.
 
 ### Technical Requirements
 

@@ -1,6 +1,6 @@
 # Story 1.2: 집중 타이머 시작
 
-Status: review
+Status: done
 
 ## Story
 

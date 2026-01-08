@@ -1,6 +1,6 @@
 # Story 1.5: 세션 기록 저장
 
-Status: review
+Status: done
 
 ## Story
 
