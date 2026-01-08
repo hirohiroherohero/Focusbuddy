@@ -191,6 +191,31 @@ extension Color {
     static let focusRed = Color(red: 248/255, green: 113/255, blue: 113/255)
     static let buddyGreen = Color(red: 74/255, green: 222/255, blue: 128/255)
     static let restBlue = Color(red: 96/255, green: 165/255, blue: 250/255)
+
+    // Grass Calendar Colors
+    static let grass0 = Color(hex: "#EBEDF0")  // 0회 - 빈 칸
+    static let grass1 = Color(hex: "#9BE9A8")  // 1회 - 연한 초록
+    static let grass2 = Color(hex: "#40C463")  // 2회 - 중간 초록
+    static let grass3 = Color(hex: "#30A14E")  // 3회+ - 진한 초록
+
+    static func grassColor(for count: Int) -> Color {
+        switch count {
+        case 0: return .grass0
+        case 1: return .grass1
+        case 2: return .grass2
+        default: return .grass3
+        }
+    }
+
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
+        let r = Double((int >> 16) & 0xFF) / 255.0
+        let g = Double((int >> 8) & 0xFF) / 255.0
+        let b = Double(int & 0xFF) / 255.0
+        self.init(red: r, green: g, blue: b)
+    }
 }
 
 #Preview {
